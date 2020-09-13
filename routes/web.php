@@ -75,3 +75,13 @@ Route::get('paises' , function(){
     return view('paises')->with("paises" , $paises );
 
 });
+
+//Ruta de controlador
+Route::get('artistas' , "ArtistaController@index");
+Route::get('artistas/create' , 'ArtistaController@create');
+Route::post('artistas/store' , 'ArtistaController@store');
+
+Route::resource('empleados', 'EmpleadoController');
+Route::get('master', function(){
+    return view ('layouts.master');
+});
