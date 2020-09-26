@@ -12,6 +12,16 @@
 
   <!-- Bootstrap core CSS -->
   <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  <!-- yield para colocar la hoja de estilo particular -->
+  @yield('estilos-particulares')
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  
+  <!-- yield para librerias particulares dependientes de jquery -->
+  @yield('j-deps')
+
+  <script src="{{ asset('bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
 </head>
 
@@ -47,14 +57,12 @@
 
   <!-- Page Content -->
   <div class="container">
-    <div class="row">
+
       @yield('contenido_vistas')
-    </div>
+
   </div>
 
-  <!-- Bootstrap core JavaScript -->
-  <script src="{{ asset('jquery/jquery.slim.min.js') }}"></script>
-  <script src="{{ asset('bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  
 
 </body>
 

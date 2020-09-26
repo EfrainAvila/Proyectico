@@ -8,6 +8,11 @@
 </head>
 <body>
     <h1>Lista de empleados</h1>
+    <hr style="border: 0px;">
+    <a class="btn btn-info" href="{{ url('empleados/create') }}">
+        Nuevo Empleado
+    </a>
+    <hr style="border: 0px;">
     <table class="table table-bordered">
         <thead>
             <tr>
@@ -15,11 +20,8 @@
                 <td>Cargo</td>
                 <td>Email</td>
                 <td>Detalles</td>
-                <!-- td>Jefe</>
-                <td>Fecha Nacimiento</td>
-                <td>Fecha de Contratación</td>
-                <td>Dirección</td>
-                <td>Ciudad</td> -->
+                <td>Actualizar</td>
+
             </tr>
         </thead>
         <tbody>
@@ -29,24 +31,12 @@
                     <td> {{ $empleado->Title }} </td>
                     <td> {{ $empleado->Email }} </td>
                     <td>
-                        <a href='{{ url("empleados/$empleado->EmployeeId") }}' class="btn btn-success"> Ver Detalles </a>
+                        <a href="{{ url('empleados/'.$empleado->EmployeeId) }}" class="btn btn-success"> Ver Detalles </a>
                     </td>
-                    <!-- <td>
-                        @if($empleado->jefe_directo()->get()->isNotEmpty() )
-                            <strong class="text-success">
-                                {{ $empleado->jefe_directo()->first()->LastName }}
-                                {{ $empleado->jefe_directo()->first()->FirstName }}
-                            </strong>
-                        @else
-                            <strong class="text-warning">
-                                {{ "Empleado sin jefe directo" }}
-                            </strong>
-                        @endif
-                    </td> -->
-                    <!-- <td> {{ $empleado->BirthDate->isoFormat('MMM Do YY') }} </td> -->
-                    <!-- <td> {{ $empleado->HireDate->isoFormat('MM Do YY') }} </td> -->
-                    <!-- <td> {{ $empleado->Address }} </td> -->
-                    <!-- <td> {{ $empleado->City }} </td> -->
+                    <td>
+                        <a href="{{ url('empleados/'.$empleado->EmployeeId.'/edit') }}" class="btn btn-info"> Actualizar </a>
+                    </td>
+                    
                 </tr>
             @endforeach
         </tbody>
